@@ -4,6 +4,7 @@ import express from 'express';
 const prisma = new PrismaClient();
 const app = express();
 const cors = require('cors');
+const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use(
@@ -93,6 +94,4 @@ app.post('/upload', async (req, res) => {
   }
 });
 
-app.listen(3001, () =>
-  console.log('REST API server at: http://localhost:3001')
-);
+app.listen(PORT, () => console.log('REST API server at PORT: ', PORT));
